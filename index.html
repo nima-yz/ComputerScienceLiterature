@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    var currDD;
+    var QShowing = false;
+    var RShowing = false;
+
+    function myFunction() {
+        if (RShowing == false)
+        {
+          RShowing = true;
+        }
+        else
+        {
+          RShowing = false;
+        }
+        if (currDD == "Q" && QShowing)
+        {
+          document.getElementById("myDropdown2").classList.toggle("show");
+          QShowing = false;
+        }
+        document.getElementById("myDropdown").classList.toggle("show");
+        currDD = "R";
+    }
+
+    function myFunction2(){
+        if (QShowing == false)
+        {
+          QShowing = true;
+        }
+        else
+        {
+          QShowing = false;
+        }
+        if (currDD == "R" && RShowing)
+        {
+          document.getElementById("myDropdown").classList.toggle("show");
+          RShowing = false;
+        }
+        document.getElementById("myDropdown2").classList.toggle("show");
+        currDD = "Q";
+    }
+
+    window.onclick = function(e) {
+      if (currDD == "R")
+      {
+          if (!e.target.matches('.dropbtn')) {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var d = 0; d < dropdowns.length; d++) {
+              var openDropdown = dropdowns[d];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+            RShowing = false;
+          }
+      }
+      else if (currDD == "Q")
+      {
+          if (!e.target.matches('.dropbtn2')) {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content2");
+            for (var d = 0; d < dropdowns.length; d++) {
+              var openDropdown = dropdowns[d];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+            QShowing = false;
+          }
+      }
+
+    }
+  </script>
+
+  <link rel="icon" href="images\book.ico" />
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <title>Publications | Home</title>
+</head>
+
+<body>
+  <div class="header">
+    <div>
+      <ul class="menubar">
+        <li><a href="login/search.php">Search</a></li>
+        <li><a href="adhocquery/adhocquery.html">Ad-hoc Query</a></li>
+        <li class=dropdown2><a href="javascript:void(0)" class="dropbtn2" onclick="myFunction2()">Queries</a>
+            <div class="dropdown-content2" id="myDropdown2">
+              <a href="queries/queries.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/queries/Query1.php">Query1</a>
+              <a href="queries/queries.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/queries/Query2.php">Query2</a>
+              <a href="queries/queries.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/queries/Query3 .php">Query3</a>
+            </div>
+        </li>
+
+        <li class=dropdown><a href="javascript:void(0)" class="dropbtn" onclick="myFunction()">Relations</a>
+            <div class="dropdown-content" id="myDropdown">
+              <a href="relations/relations.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/relations/Book.php">Books</a>
+              <a href="relations/relations.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/relations/Author.php">Book's Author</a>
+              <a href="relations/relations.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/relations/Article.php">Articles</a>
+              <a href="relations/relations.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/relations/Thesis.php">Thesis</a>
+              <a href="relations/relations.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/relations/Topics.php">Topics</a>
+            </div>
+        </li>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </div>
+    <H1>Computer Science Literature</H1>
+  </div>
+  <div class="headerpad"><br></div>
+
+  <br><br>
+
+  <div class="peoplebox" >
+    <div class="nimabox">
+      <br>
+      <p><B>Nima Yahyazade</B></p>
+      <br><br>
+      <img class="nima" src="images/nima.jpg" height="250" width="250" align="middle">
+      <br>
+      <div class="nimadesc">
+        <p><b>Email:</b> <a href="mailto:nimayz@vt.edu">nimayz@vt.edu</a></p>
+        <p>VT 2017</p>
+        <p>Computer Science</p>
+      </div>
+    </div>
+
+    <div class="nelsonbox">
+      <br>
+      <p><B>Nelson Lam</B></p>
+      <br><br>
+      <img class="nelson" src="images/nelson.jpg" height="250" width="250" align="middle">
+      <br>
+      <div class="nelsondesc">
+        <p><b>Email:</b> <a href="mailto:lmnelson@vt.edu">lmnelson@vt.edu</a></p>
+        <p>VT 2017</p>
+        <p>Computer Science</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

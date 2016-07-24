@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    var currDD;
+    var QShowing = false;
+    var RShowing = false;
+
+    function myFunction() {
+        if (RShowing == false)
+        {
+          RShowing = true;
+        }
+        else
+        {
+          RShowing = false;
+        }
+        if (currDD == "Q" && QShowing)
+        {
+          document.getElementById("myDropdown2").classList.toggle("show");
+          QShowing = false;
+        }
+        document.getElementById("myDropdown").classList.toggle("show");
+        currDD = "R";
+    }
+
+    function myFunction2(){
+        if (QShowing == false)
+        {
+          QShowing = true;
+        }
+        else
+        {
+          QShowing = false;
+        }
+        if (currDD == "R" && RShowing)
+        {
+          document.getElementById("myDropdown").classList.toggle("show");
+          RShowing = false;
+        }
+        document.getElementById("myDropdown2").classList.toggle("show");
+        currDD = "Q";
+    }
+
+    window.onclick = function(e) {
+      if (currDD == "R")
+      {
+          if (!e.target.matches('.dropbtn')) {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var d = 0; d < dropdowns.length; d++) {
+              var openDropdown = dropdowns[d];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+            RShowing = false;
+          }
+      }
+      else if (currDD == "Q")
+      {
+          if (!e.target.matches('.dropbtn2')) {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content2");
+            for (var d = 0; d < dropdowns.length; d++) {
+              var openDropdown = dropdowns[d];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+            QShowing = false;
+          }
+      }
+
+    }
+  </script>
+  <script language="javascript" type="text/javascript">
+    function resizeIframe(obj) {
+      obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+    }
+  </script>
+
+  <script language="javascript" type="text/javascript">
+    function changeIframeSource(obj){
+      document.getElementById('iframe').src = obj;
+    }
+  </script>
+
+  <script type="text/javascript" src="..\jquery.min.js"></script>
+  <link rel="icon" href="..\images\book.ico" />
+  <link rel="stylesheet" type="text/css" href="queries.css">
+  <title>Publications | Relations</title>
+  <script type="text/javascript"> 
+<!-- 
+
+function loadIframe(){ 
+if (location.search.length > 0){ 
+url = unescape(location.search.substring(1)) 
+
+window.frames["iframe"].location=url 
+} 
+} 
+
+onload=loadIframe 
+//--> 
+</script> 
+
+
+</head>
+
+<body>
+  <ul class="menubar" id="menubar">
+    <li><a href="../login/search.php">Search</a></li>
+    <li><a href="../adhocquery/adhocquery.php">Ad-hoc Query</a></li>
+    <li class=dropdown2><a href="javascript:void(0)" class="dropbtn2" onclick="myFunction2()">Queries</a>
+            <div class="dropdown-content2" id="myDropdown2">
+              <a href="queries.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/queries/Query1.php">Query1</a>
+              <a href="queries.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/queries/Query2.php">Query2</a>
+              <a href="queries.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/queries/Query3.php">Query3</a>
+               <!--<a href="queries.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/queries/Query4.php">Query4</a> -->
+              <!--<a href="queries.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/queries/Query5.php">Query5</a> -->
+            </div>
+    </li>
+    <li class="dropdown"><a href="javascript:void(0)" class="dropbtn" onclick="myFunction()">Relations</a>
+            <div class="dropdown-content" id="myDropdown">
+              <a href="../relations/relations.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/relations/Book.php">Books</a>
+              <a href="../relations/relations.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/relations/Author.php">Book's Author</a>
+              <a href="../relations/relations.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/relations/Article.php">Articles</a>
+              <a href="../relations/relations.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/relations/Thesis.php">Thesis</a>
+              <a href="../relations/relations.html?http://cs4604.cs.vt.edu/~nimayz/Database%20Website/relations/Topics.php">Topics</a>
+            </div>
+    </li>
+    <li><a href="../index.html">Home</a></li>
+  </ul>
+  <div id="tabletrans" name= "tabletrans" class="tabletrans"><BR><BR></div>
+  <iframe name="iframe" class= "iframe" src="" scrolling="no" frameborder="0" onload="resizeIframe(this)" style="background: #d1e0e0; border:none"></iframe>
+</body>
+
+</html>
